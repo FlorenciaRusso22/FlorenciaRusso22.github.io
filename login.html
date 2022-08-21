@@ -19,10 +19,48 @@
 <body>
   <main class="mt-5">
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+
+
+
+      <!--Código para el login-->
+
+      <div class="text-center">
+        <div class="text-center">
+          <img src="./img/login.png" class="rounded mx-auto d-block" alt width="300" height="150">
+        </div>
+
+
+
+        <h1 class="h3 mb-3 fw-normal">
+          <font style="vertical-align: inherit;"> <b>Inicio de sesión </b></font>
+        </h1>
+
+        <p> Email </p> 
+        <div class="form-floating mb-3">
+
+          <input type="email" class="form-control" placeholder="" id="email">
+          <label for="floatingInput">Email</label>
+        </div>
+
+        
+        <br>
+        <br>
+
+        <p> Contraseña </p> 
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="">
+          <label for="floatingPassword">Contraseña</label>
+        </div>
+        <br>
+        <br>
+        <div class="col-12">
+          <button type="button" class="btn btn-primary" id="ok">Ingresar</button>
+        </div>
+      </div>  
+
+
     </div>
+
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -35,6 +73,14 @@
     </div>
   </footer>
   <script src="js/login.js"></script>
+      <!--Aca use la alerta del ejemplo grupal-->
+  <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
+    <p> <b>Ingresa el email y la contraseña </b></p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="document.location.reload()"></button>
+  </div>
+
+
+
 </body>
 
 </html>
