@@ -6,6 +6,11 @@ let producto = {};
 let coments = {};
 
 
+function setProduct(id){
+    localStorage.setItem("ProdID", id)
+    window.location.href ="product-info.html"
+}
+
 
 function starscore(stars){  //funcion para pasar la puntuacion del usuario a estrellas
     let htmlStar = ""
@@ -29,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("Descripcion").innerHTML = producto.description;
         document.getElementById("categoria").innerHTML = producto.category;
         document.getElementById("cantidad_vendidos").innerHTML = producto.soldCount;
+
 
         htmlImagenes = ""   
             for (let i = 0; i < producto.images.length; i++){
@@ -63,6 +69,25 @@ document.addEventListener("DOMContentLoaded", () => {
             } //for para recorrer los comentarios 
             document.getElementById("comentarios").innerHTML = htmlcomentarios
         })
+
+
+        let productosRelacionados = " "
+        for (let i = 0; i < producto.relatedProducts.length; i++){
+            productosRelacionados += 
+
+            `
+            <div class= "card col">
+                <div class="text-center">
+                    <img src="${producto.relatedProducts[i].image}" class="img-thumbnail gallery-item";></img>   
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title"> ${producto.relatedProducts[i].name}</h5>
+                    <a href="product-info.html" style="text-decoration:none"  style="text-decoration:none; color:black" onclick="setProduct(${producto.relatedProducts[i].id})")> Ver más </a> 
+                </div>
+            </div>
+            `
+        }
+        document.getElementById("Producto_relacionado").innerHTML = productosRelacionados;
     })
 })
 

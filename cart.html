@@ -36,11 +36,90 @@
     </div>
   </nav>
   <main>
+    <!--Comence a trabajar en el codigo-->
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="text-center p-4">
+        <h2>Carrito de compras</h2>
+        <p class="lead" style="text-align:left">Articulos a comprar</p>
+        <div class="row">
+          <div class="col">
+            <h8><strong>Nombre</strong></h8>
+          </div>
+          <div class="col">
+            <h8><strong>Costo</strong></h8>
+          </div>
+          <div class="col">
+            <h8><strong>Cantidad</strong></h8>
+          </div>
+          <div class="col">
+            <h8><strong>Subtotal</strong></h8>
+          </div>
+        </div>  
+          <hr >
+          <!--Aca me traigo la informacion del json-->
+          <div class="row">
+            <div class="col">
+              <div id="imagen_vend">
+              </div>
+            </div>
+            <div class="col">
+              <p id="nombre_vendido"></p>
+            </div>
+            <div class="col">
+              <p id="currency_cost"></p>
+            </div>
+            <div class="col">
+              <input type="number" class="input-group-prepend" style="width : 55px"value="1" id="cantidad_art" onchange="subtotal()">
+            </div>
+            <div class="col">
+              <p id="compra"></p>
+            </div>
+          </div>
+        
       </div>
+      <hr>
+      <p class="lead" style="text-align:left">Tipo de envio</p>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="clase" id="premium">
+          <label class="form-check-label" for="">
+            Premium 2 a 5 dias (15%)
+          </label>
+        </div>  
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="clase" id="express">
+          <label class="form-check-label" for="">
+            Express 5 a 8 dias (7%)
+          </label>
+        </div>  
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="clase" id="standard">
+          <label class="form-check-label" for="">
+            Standard 12 a 15 dias (5%)
+          </label>
+        </div>  
+        <br>
+      <p class="lead" style="text-align:left">Direccion de envio</p>
+        <div class="row">
+          <div class="col">
+            <label for="">Calle</label>
+            <input type="text" class="form-control" placeholder="Calle">
+          </div>    
+          <div class="col">
+            <label for="">Numero</label>
+            <input type="text" class="form-control" placeholder="Numero">
+          </div> 
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label for="">Esquina</label>
+            <input type="text" class="form-control" placeholder="Esquina">
+          </div>
+        </div>   
+      <br>  
+      <hr>
     </div>
+  <!--Termiine de trabajar en el codigo, modifique solo este sector-->
   </main>
   <footer class="text-muted">
     <div class="container">
