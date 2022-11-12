@@ -40,8 +40,11 @@
     <div class="container">
       <div class="text-center p-4">
         <h2>Carrito de compras</h2>
-        <p class="lead" style="text-align:left">Articulos a comprar</p>
+        <h2 class="lead" style="text-align:left">Articulos a comprar</h2>
         <div class="row">
+          <div class="col">
+            <h8><strong></strong></h8>
+          </div>
           <div class="col">
             <h8><strong>Nombre</strong></h8>
           </div>
@@ -59,8 +62,7 @@
           <!--Aca me traigo la informacion del json-->
           <div class="row">
             <div class="col">
-              <div id="imagen_vend">
-              </div>
+              <div id="imagen_vend"></div>
             </div>
             <div class="col">
               <p id="nombre_vendido"></p>
@@ -69,57 +71,192 @@
               <p id="currency_cost"></p>
             </div>
             <div class="col">
-              <input type="number" class="input-group-prepend" style="width : 55px"value="1" id="cantidad_art" onchange="subtotal()">
+              <input type="number" min="1" class="input-group-prepend" style="width : 55px"value="1" id="cantidad_art" onchange="subtotal()">
             </div>
             <div class="col">
-              <p id="compra"></p>
+              <strong><p id="compra"></p></strong>
             </div>
           </div>
-        
-      </div>
-      <hr>
-      <p class="lead" style="text-align:left">Tipo de envio</p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="clase" id="premium">
-          <label class="form-check-label" for="">
-            Premium 2 a 5 dias (15%)
-          </label>
-        </div>  
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="clase" id="express">
-          <label class="form-check-label" for="">
-            Express 5 a 8 dias (7%)
-          </label>
-        </div>  
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="clase" id="standard">
-          <label class="form-check-label" for="">
-            Standard 12 a 15 dias (5%)
-          </label>
-        </div>  
-        <br>
-      <p class="lead" style="text-align:left">Direccion de envio</p>
-        <div class="row">
-          <div class="col">
-            <label for="">Calle</label>
-            <input type="text" class="form-control" placeholder="Calle">
-          </div>    
-          <div class="col">
-            <label for="">Numero</label>
-            <input type="text" class="form-control" placeholder="Numero">
-          </div> 
         </div>
-        <br>
-        <div class="row">
-          <div class="col">
-            <label for="">Esquina</label>
-            <input type="text" class="form-control" placeholder="Esquina">
+          <!--Empieza el formulario-->
+            <hr>
+            <form id="formulario" action="" method="get" class="row mt-4 needs-validation" novalidate autocomplete="off">
+            <p class="lead" style="text-align:left">Tipo de envio</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="clase" id="premium" onchange="subtotal()"> <!--Se agrego onchange-->
+            <label class="form-check-label" for="">
+              Premium 2 a 5 dias (15%)
+            </label>
+          </div>  
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="clase" id="express" onchange="subtotal()"> <!--Se agrego onchange-->
+            <label class="form-check-label" for="">
+              Express 5 a 8 dias (7%)
+            </label>
+          </div>  
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="clase" id="standard" onchange="subtotal()" checked> <!--Se agrego onchange-->
+            <label class="form-check-label" for=""> 
+              Standard 12 a 15 dias (5%)
+            </label>
+            
+          </div>  
+          <hr>
+          <p class="lead" style="text-align:left">Direccion de envio</p>
+          <div class="row">
+            <div class="col">
+              <label for="Calle" class="form-label">Calle</label>
+              <input type="text" class="form-control" placeholder="" id="inputCalle" required>
+
+              <div class="invalid-feedback">Ingresa una calle</div>
+              </div>    
+            <div class="col">
+              <label for="Numero" class="form-label">Numero</label>
+              <input type="text" class="form-control" placeholder="" id="inputNumero" required>
+
+              <div class="invalid-feedback">Ingresa un numero</div>
+              </div> 
+            </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <label for="Esquina" class="form-label">Esquina</label>
+              <input type="text" class="form-control" placeholder="" id="inputEsquina" required>
+
+              <div class="invalid-feedback">Ingresa una esquina</div>
+            </div>
+          </div>   
+          <br>
+          <br>
+          <!--Modificacion para entrega 6-->  
+          <p class="lead" style="text-align:left">Costos</p>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col">
+                  Subtotal
+                  <span class="d-flex w-100 justify-content-between">Costo unitario del prodcto por cantidad</span>
+                </div>
+                <div class="col">
+                  <p class="text" id="subtotalCosto" style="text-align:right"> - </p>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col">
+                  Costo de envio
+                  <span class="d-flex w-100 justify-content-between">Segun el tipo de envío</span>
+                </div>
+                <div class="col">
+                  <p class="text" style="text-align:right" id="textEnvioTip">USD</p>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col"><strong>
+                  Total($)
+                  </strong>
+                </div>
+                <div class="col">
+                  <div class="col"><strong>
+                    <p class="text" style="text-align:right" id="totalCostText"><strong></strong></p>
+                    </strong>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <br>  
+
+
+          <!--SELECCIONAR PAGO-->
+
+          <p class="lead" style="text-align:left">Forma de pago</p>
+          <div>
+            <span class="label" id="typePayment"> No ha selecionado nada aun</span>
+            <button type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
+            data-bs-target="#modalPagos"> Seleccionar</button>
+            <p id="parrafo" style="color: red;" hidden> 
+              Debe seleccionar una forma de pago
+            </p>
           </div>
-        </div>   
-      <br>  
-      <hr>
+          <!--SELECCIONAR PAGO-->
+
+          <!--MODAL-->
+          <div class="modal fade" id="modalPagos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"><b>Forma de pago</b></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <input class="custon-control-input" type="radio" name="tipoPago" id="TarjCreditRadio" required>
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Tarjeta de crédito
+                  </label>
+                  <hr>
+                  <div class="row g-3 needs-validation" >
+                    <div class="col-md-6">
+                      <label for="NumTarjeta" class="form-label">Numero de tarjeta</label>
+                      <input type="text" class="form-control" id="NumTarjeta" required>
+                      <div class="valid-feedback">
+                        Ingresa numero de tarjeta
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="CodigSegurid" class="form-label">Código de seg.</label>
+                      <input type="text" class="form-control" id="CodigSegurid" min="3" max="3 "placeholder="xxx"required>
+                      <div class="valid-feedback">
+                        Ingresa el codigo de seguridad
+                      </div>
+                    </div>
+                    <br>
+                    <div class="col-md-6">
+                      <label for="CodigoSeg" class="form-label">Vencimiento (MM/AA)</label>
+                      <input type="month" class="form-control" id="CodigoSeg" placeholder="MM/YY" required>
+                      <div class="valid-feedback">
+                        Ingresa fecha de vencimiento
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <input class="custon-control-input"  type="radio" name="tipoPago" id="TransferBank">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Transferencia bancaria
+                  </label>
+                  <hr>
+                  <div class="row g-3 needs-validation" >
+                    <div class="col-md-6">
+                      <label for="NumCuenta" class="form-label">Numero de cuenta</label>
+                      <input type="text" class="form-control" id="NumCuenta" min="16" max= "16" placeholder="xxxx-xxxx-xxxx-xxxx" required>
+                      <div class="invalid-feedback">
+                        Ingresa un numero de cuenta
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--TERMINA MODAL-->
+
+          <!--BOTON DE FINALIZAR COMPRA-->
+
+          <button type="submit" class="btn btn-primary" id="BotonCompra">Finalizar compra</button>
+
+        </form>
+          <!--Termina formulario-->  
+          <div id="cartel">
+
+          </div>
     </div>
-  <!--Termiine de trabajar en el codigo, modifique solo este sector-->
+   <!--Termine de trabajar en el codigo, modifique solo este sector-->
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -139,6 +276,8 @@
       <div></div>
     </div>
   </div>
+
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>

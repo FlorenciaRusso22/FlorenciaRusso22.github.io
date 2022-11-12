@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `
             <div class= "card col">
                 <div class="text-center">
-                    <img src="${producto.relatedProducts[i].image}" class="img-thumbnail gallery-item";></img>   
+                    <img src="${producto.relatedProducts[i].image}"  class="card-img-top";></img>   
                 </div>
                 <div class="card-body text-center">
                     <h5 class="card-title"> ${producto.relatedProducts[i].name}</h5>

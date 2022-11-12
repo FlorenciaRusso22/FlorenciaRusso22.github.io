@@ -37,14 +37,27 @@
     </div>
   </nav>
   <main>
+<!--Comence a trabajar en el codigo-->
     <div class="container" style='text-align:left'>
       <div class="container" >
         <div class="nav-item">
           <div class="row" style="padding: 20px;">
-            <h2 id="productName"></h2>
+            <div class="col-sm">
+              <h2 id="productName"></h2>
+            </div>
+            <div class="col-sm" style='text-align:right' >
+              <button type="button" class="btn btn-success" id="ok">Comprar</button>
+            </div>
           </div>  
           <hr>
-          <p><strong>Precio</strong></p>
+          <div class="row">
+            <div class="col-sm">
+              <p><strong>Precio</strong></p>
+            </div>
+            <div class="col-sm" style='text-align:right' onclick="history.back()">
+              <button type="button" class="btn btn-light">🡸 Volver al listado</button>
+            </div>
+          </div>
           <p id="precio"></p>
           <p><strong>Descripcion</strong></p>
           <p id="Descripcion" class="lead"> </p>
@@ -81,12 +94,11 @@
         <button type="button" class="btn btn-primary">Enviar</button>
         <hr>
         <p><strong>Productos relacionados</strong> </p>
-
-          <div class="row" style="width:600px" id="Producto_relacionado">
-          </div>
-
+        <div class="row" style="width:600px" id="Producto_relacionado">
+        </div>
       </div>
     </div>  
+<!--Termine a trabajar en el codigo-->
   </main>
   <footer class="text-muted">
     <div class="container">
