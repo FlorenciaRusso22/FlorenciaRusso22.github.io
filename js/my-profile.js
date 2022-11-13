@@ -78,4 +78,7 @@ emailInput.value = localStorage.getItem("email2");
             nombreD.value = localStorage.getItem("nombreD");
         }
 
+    
+
     })   
+

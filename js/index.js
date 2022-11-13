@@ -21,3 +21,12 @@ document.addEventListener("DOMContentLoaded", function(){
         document.getElementById("ingresar").innerHTML = localStorage.getItem("email")
     }
 })
+
+
+//agregue esto para entrega 7, para que al cerrar sesion me borre los datos que guarde en el perfil
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("ButtonOff").addEventListener("click", () => {
+        localStorage.clear();
+    })
+})
